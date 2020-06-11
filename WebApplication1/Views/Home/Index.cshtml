@@ -1,6 +1,42 @@
-﻿@{
+﻿@model  IEnumerable<WebApplication1.Models.Course>
+@{
     ViewBag.Title = "Home Page";
 }
+
+<div class="row">
+    <ul>
+        @foreach (var course in Model)
+        {
+            <li>
+                @course.Datetime-@course.Lecturer.Name
+            </li>
+        }
+    </ul>
+    <ul class="course">
+        @foreach (var couse in Model)
+        {
+            <li>
+                <div class="date">
+                    <div class="month">
+                        @couse.Datetime.ToString("MM")
+                    </div>
+                    <div class="day">
+                        @couse.Datetime.ToString("dd")
+                    </div>
+                </div>
+                <div class="details">
+                    <span class=" Lecture">
+                        @couse.Lecturer.Name
+
+                    </span>
+                    <span class="Category ">
+                        @couse.Category.name
+                    </span>
+                </div>
+            </li>
+        }
+    </ul>
+</div> 
 
 <div class="jumbotron">
     <h1>ASP.NET</h1>
